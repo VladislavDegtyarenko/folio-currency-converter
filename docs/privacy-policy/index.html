@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="How Folio: Currency Converter handles local data, exchange-rate requests, and feedback."
+    />
+    <title>Privacy Policy | Folio: Currency Converter</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: system-ui, sans-serif;
+        line-height: 1.65;
+      }
+
+      body {
+        max-width: 44rem;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 4rem;
+      }
+
+      h1,
+      h2 {
+        line-height: 1.25;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        margin-top: 2rem;
+        font-size: 1.25rem;
+      }
+
+      a {
+        color: LinkText;
+        overflow-wrap: anywhere;
+        text-underline-offset: 0.2em;
+      }
+
+      a:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>Folio: Currency Converter</p>
+      <h1>Privacy Policy</h1>
+      <p>Last updated: November 8, 2026</p>
+      <p>
+        Folio is a Chrome extension developed by Vladyslav Dihtiarenko. It
+        converts amounts between currencies. You do not need an account to use
+        it. The developer does not receive your entered amounts, currency
+        selections, or settings from the extension.
+      </p>
+
+      <h2>Data stored on your device</h2>
+      <p>
+        Folio uses Chrome's local extension storage to save your current
+        conversion amount, currency selections and order, conversion mode,
+        display and language settings, and the last validated exchange-rate
+        snapshot. This allows Folio to restore your preferences and use saved
+        rates without an internet connection. Folio does not keep a history of
+        your conversions or older rate snapshots.
+      </p>
+      <p>
+        Folio does not send this saved state to the developer or synchronize it
+        between devices. A browser preview used for development saves the same
+        state in that preview site's local browser storage instead.
+      </p>
+
+      <h2>Exchange-rate requests</h2>
+      <p>
+        Folio requests exchange-rate data when you open it and when you request
+        a refresh. It downloads a fixed data file from
+        <a href="https://latest.currency-api.pages.dev/v1/currencies/usd.json">
+          latest.currency-api.pages.dev
+        </a>
+        over HTTPS, an encrypted network connection. The file is provided by
+        the
+        <a href="https://github.com/fawazahmed0/exchange-api">exchange-api</a>
+        project and hosted on Cloudflare Pages.
+      </p>
+      <p>
+        These requests do not include your entered amounts, selected currencies,
+        or settings. As with other internet requests, the hosting provider
+        receives your IP address and standard connection and request metadata.
+        Its handling of that information is governed by its own policies,
+        including
+        <a href="https://www.cloudflare.com/privacypolicy/">
+          Cloudflare's Privacy Policy
+        </a>. The developer does not operate this rate service.
+      </p>
+
+      <h2>Permissions and tracking</h2>
+      <p>
+        Folio uses the storage permission to save its local state and permission
+        to contact the rate-service domain to download rates. It does not read
+        the content of websites you visit, your browsing history, or your
+        browser cookies. It does not include advertising, analytics, or
+        tracking tools. The developer does not sell your extension data or use
+        it for advertising.
+      </p>
+
+      <h2>Feedback and external links</h2>
+      <p>
+        If you choose to email feedback, the developer receives the email
+        address, message, and any attachments you send. That information is
+        used to respond to your request and investigate reported problems.
+        Email is processed by the email providers involved and retained as
+        needed to handle the conversation. You can request deletion by
+        contacting the developer.
+      </p>
+      <p>
+        Links to the developer's website and optional donation page open
+        external websites only when you select them. Those websites handle
+        information under their own privacy policies. Folio does not process
+        payments or receive payment-card details within the extension.
+      </p>
+
+      <h2>Retention and deletion</h2>
+      <p>
+        Local state stays on your device until it is replaced or removed.
+        Changing an amount, selection, or setting replaces its saved value;
+        receiving a new validated rate snapshot replaces the previous snapshot.
+        Uninstalling Folio removes its Chrome local extension storage. For a
+        development preview, clear that preview site's browser storage to
+        remove its saved state.
+      </p>
+
+      <h2>This policy page</h2>
+      <p>
+        This page contains no analytics scripts or tracking tools. When you
+        visit this page on GitHub Pages, GitHub may process technical information
+        about visits, such as IP addresses, under the
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">
+          GitHub General Privacy Statement
+        </a>.
+      </p>
+
+      <h2>Changes and contact</h2>
+      <p>
+        This policy may be updated when Folio's data handling changes. The date
+        above identifies the latest revision.
+      </p>
+      <p>
+        For privacy questions or requests, contact Vladyslav Dihtiarenko at
+        <a href="mailto:vladyslav.dihtiarenko@gmail.com">
+          vladyslav.dihtiarenko@gmail.com
+        </a>.
+      </p>
+    </main>
+  </body>
+</html>

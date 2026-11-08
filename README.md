@@ -121,6 +121,26 @@ Settings also include a feedback email link and a Support link. The support addr
 
 ## Development commands
 
+### Package for Chrome Web Store
+
+Run `pnpm package` to check the code, run the tests, build the extension, and
+create `releases/folio-currency-converter-<version>.zip`. The version comes from
+the built manifest. This command requires Node.js, pnpm, and the `zip` command
+(included with macOS; install it separately on other systems if needed).
+
+Packaging stops if any step fails. The archive contains only the contents of
+`dist/`, with `manifest.json` at its root. A successful run replaces the archive
+for the same version, so files removed from a later build do not remain in it.
+Git ignores `releases/`. Packaging does not upload or publish the extension.
+
+The privacy policy page is in `docs/privacy-policy/index.html`. To host it with GitHub Pages,
+publish the reviewed policy to a branch and select that branch's `/docs` folder
+in the repository's Pages settings. The page is separate from the extension
+package. Its public path is `/folio-currency-converter/privacy-policy/`, leaving
+the site root available for a future homepage.
+
+### Checks and formatting
+
 Biome handles formatting, linting, and import sorting. Formatting controls indentation, spacing, and line wrapping. Linting checks for code problems, such as unused variables. TypeScript checks that values and function calls match their declared types.
 
 | Command             | What it does                                                                             | Changes files? |

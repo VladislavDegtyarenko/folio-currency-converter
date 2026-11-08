@@ -1,0 +1,1706 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`API currency catalog > resolves the flag and symbol for every code in the bundled API catalog 1`] = `
+[
+  {
+    "code": "1INCH",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "AAVE",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ADA",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "AED",
+    "flag": "🇦🇪",
+    "symbol": "",
+  },
+  {
+    "code": "AFN",
+    "flag": "🇦🇫",
+    "symbol": "؋",
+  },
+  {
+    "code": "AKT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ALGO",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ALL",
+    "flag": "🇦🇱",
+    "symbol": "",
+  },
+  {
+    "code": "AMD",
+    "flag": "🇦🇲",
+    "symbol": "֏",
+  },
+  {
+    "code": "AMP",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ANG",
+    "flag": "🇨🇼",
+    "symbol": "",
+  },
+  {
+    "code": "AOA",
+    "flag": "🇦🇴",
+    "symbol": "Kz",
+  },
+  {
+    "code": "APE",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "APT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "AR",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ARB",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ARS",
+    "flag": "🇦🇷",
+    "symbol": "$",
+  },
+  {
+    "code": "ATOM",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ATS",
+    "flag": "🇦🇹",
+    "symbol": "",
+  },
+  {
+    "code": "AUD",
+    "flag": "🇦🇺",
+    "symbol": "$",
+  },
+  {
+    "code": "AVAX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "AWG",
+    "flag": "🇦🇼",
+    "symbol": "",
+  },
+  {
+    "code": "AXS",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "AZM",
+    "flag": "🇦🇿",
+    "symbol": "",
+  },
+  {
+    "code": "AZN",
+    "flag": "🇦🇿",
+    "symbol": "₼",
+  },
+  {
+    "code": "BAKE",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "BAM",
+    "flag": "🇧🇦",
+    "symbol": "KM",
+  },
+  {
+    "code": "BAT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "BBD",
+    "flag": "🇧🇧",
+    "symbol": "$",
+  },
+  {
+    "code": "BCH",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "BDT",
+    "flag": "🇧🇩",
+    "symbol": "৳",
+  },
+  {
+    "code": "BEF",
+    "flag": "🇧🇪",
+    "symbol": "",
+  },
+  {
+    "code": "BGN",
+    "flag": "🇧🇬",
+    "symbol": "",
+  },
+  {
+    "code": "BHD",
+    "flag": "🇧🇭",
+    "symbol": "",
+  },
+  {
+    "code": "BIF",
+    "flag": "🇧🇮",
+    "symbol": "",
+  },
+  {
+    "code": "BMD",
+    "flag": "🇧🇲",
+    "symbol": "$",
+  },
+  {
+    "code": "BNB",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "BND",
+    "flag": "🇧🇳",
+    "symbol": "$",
+  },
+  {
+    "code": "BOB",
+    "flag": "🇧🇴",
+    "symbol": "Bs",
+  },
+  {
+    "code": "BRL",
+    "flag": "🇧🇷",
+    "symbol": "R$",
+  },
+  {
+    "code": "BSD",
+    "flag": "🇧🇸",
+    "symbol": "$",
+  },
+  {
+    "code": "BSV",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "BSW",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "BTC",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "BTCB",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "BTG",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "BTN",
+    "flag": "🇧🇹",
+    "symbol": "",
+  },
+  {
+    "code": "BTT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "BUSD",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "BWP",
+    "flag": "🇧🇼",
+    "symbol": "P",
+  },
+  {
+    "code": "BYN",
+    "flag": "🇧🇾",
+    "symbol": "",
+  },
+  {
+    "code": "BYR",
+    "flag": "🇧🇾",
+    "symbol": "",
+  },
+  {
+    "code": "BZD",
+    "flag": "🇧🇿",
+    "symbol": "$",
+  },
+  {
+    "code": "CAD",
+    "flag": "🇨🇦",
+    "symbol": "$",
+  },
+  {
+    "code": "CAKE",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "CDF",
+    "flag": "🇨🇩",
+    "symbol": "",
+  },
+  {
+    "code": "CELO",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "CFX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "CHF",
+    "flag": "🇨🇭",
+    "symbol": "",
+  },
+  {
+    "code": "CHZ",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "CLP",
+    "flag": "🇨🇱",
+    "symbol": "$",
+  },
+  {
+    "code": "CNH",
+    "flag": "🇨🇳",
+    "symbol": "",
+  },
+  {
+    "code": "CNY",
+    "flag": "🇨🇳",
+    "symbol": "¥",
+  },
+  {
+    "code": "COMP",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "COP",
+    "flag": "🇨🇴",
+    "symbol": "$",
+  },
+  {
+    "code": "CRC",
+    "flag": "🇨🇷",
+    "symbol": "₡",
+  },
+  {
+    "code": "CRO",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "CRV",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "CSPR",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "CUC",
+    "flag": "🇨🇺",
+    "symbol": "$",
+  },
+  {
+    "code": "CUP",
+    "flag": "🇨🇺",
+    "symbol": "$",
+  },
+  {
+    "code": "CVE",
+    "flag": "🇨🇻",
+    "symbol": "",
+  },
+  {
+    "code": "CVX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "CYP",
+    "flag": "🇨🇾",
+    "symbol": "",
+  },
+  {
+    "code": "CZK",
+    "flag": "🇨🇿",
+    "symbol": "Kč",
+  },
+  {
+    "code": "DAI",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "DASH",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "DCR",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "DEM",
+    "flag": "🇩🇪",
+    "symbol": "",
+  },
+  {
+    "code": "DFI",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "DJF",
+    "flag": "🇩🇯",
+    "symbol": "",
+  },
+  {
+    "code": "DKK",
+    "flag": "🇩🇰",
+    "symbol": "kr",
+  },
+  {
+    "code": "DOGE",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "DOP",
+    "flag": "🇩🇴",
+    "symbol": "$",
+  },
+  {
+    "code": "DOT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "DYDX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "DZD",
+    "flag": "🇩🇿",
+    "symbol": "",
+  },
+  {
+    "code": "EEK",
+    "flag": "🇪🇪",
+    "symbol": "",
+  },
+  {
+    "code": "EGLD",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "EGP",
+    "flag": "🇪🇬",
+    "symbol": "E£",
+  },
+  {
+    "code": "ENJ",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "EOS",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ERN",
+    "flag": "🇪🇷",
+    "symbol": "",
+  },
+  {
+    "code": "ESP",
+    "flag": "🇪🇸",
+    "symbol": "₧",
+  },
+  {
+    "code": "ETB",
+    "flag": "🇪🇹",
+    "symbol": "",
+  },
+  {
+    "code": "ETC",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ETH",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "EUR",
+    "flag": "🇪🇺",
+    "symbol": "€",
+  },
+  {
+    "code": "EURC",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "FEI",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "FIL",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "FIM",
+    "flag": "🇫🇮",
+    "symbol": "",
+  },
+  {
+    "code": "FJD",
+    "flag": "🇫🇯",
+    "symbol": "$",
+  },
+  {
+    "code": "FKP",
+    "flag": "🇫🇰",
+    "symbol": "£",
+  },
+  {
+    "code": "FLOW",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "FLR",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "FRAX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "FRF",
+    "flag": "🇫🇷",
+    "symbol": "",
+  },
+  {
+    "code": "FTT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "GALA",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "GBP",
+    "flag": "🇬🇧",
+    "symbol": "£",
+  },
+  {
+    "code": "GEL",
+    "flag": "🇬🇪",
+    "symbol": "₾",
+  },
+  {
+    "code": "GGP",
+    "flag": "🇬🇬",
+    "symbol": "",
+  },
+  {
+    "code": "GHC",
+    "flag": "🇬🇭",
+    "symbol": "",
+  },
+  {
+    "code": "GHS",
+    "flag": "🇬🇭",
+    "symbol": "GH₵",
+  },
+  {
+    "code": "GIP",
+    "flag": "🇬🇮",
+    "symbol": "£",
+  },
+  {
+    "code": "GMD",
+    "flag": "🇬🇲",
+    "symbol": "",
+  },
+  {
+    "code": "GMX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "GNF",
+    "flag": "🇬🇳",
+    "symbol": "FG",
+  },
+  {
+    "code": "GNO",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "GRD",
+    "flag": "🇬🇷",
+    "symbol": "",
+  },
+  {
+    "code": "GRT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "GT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "GTQ",
+    "flag": "🇬🇹",
+    "symbol": "Q",
+  },
+  {
+    "code": "GUSD",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "GYD",
+    "flag": "🇬🇾",
+    "symbol": "$",
+  },
+  {
+    "code": "HBAR",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "HKD",
+    "flag": "🇭🇰",
+    "symbol": "$",
+  },
+  {
+    "code": "HNL",
+    "flag": "🇭🇳",
+    "symbol": "L",
+  },
+  {
+    "code": "HNT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "HOT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "HRK",
+    "flag": "🇭🇷",
+    "symbol": "kn",
+  },
+  {
+    "code": "HT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "HTG",
+    "flag": "🇭🇹",
+    "symbol": "",
+  },
+  {
+    "code": "HUF",
+    "flag": "🇭🇺",
+    "symbol": "Ft",
+  },
+  {
+    "code": "ICP",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "IDR",
+    "flag": "🇮🇩",
+    "symbol": "Rp",
+  },
+  {
+    "code": "IEP",
+    "flag": "🇮🇪",
+    "symbol": "",
+  },
+  {
+    "code": "ILS",
+    "flag": "🇮🇱",
+    "symbol": "₪",
+  },
+  {
+    "code": "IMP",
+    "flag": "🇮🇲",
+    "symbol": "",
+  },
+  {
+    "code": "IMX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "INJ",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "INR",
+    "flag": "🇮🇳",
+    "symbol": "₹",
+  },
+  {
+    "code": "IQD",
+    "flag": "🇮🇶",
+    "symbol": "",
+  },
+  {
+    "code": "IRR",
+    "flag": "🇮🇷",
+    "symbol": "",
+  },
+  {
+    "code": "ISK",
+    "flag": "🇮🇸",
+    "symbol": "kr",
+  },
+  {
+    "code": "ITL",
+    "flag": "🇮🇹",
+    "symbol": "",
+  },
+  {
+    "code": "JEP",
+    "flag": "🇯🇪",
+    "symbol": "",
+  },
+  {
+    "code": "JMD",
+    "flag": "🇯🇲",
+    "symbol": "$",
+  },
+  {
+    "code": "JOD",
+    "flag": "🇯🇴",
+    "symbol": "",
+  },
+  {
+    "code": "JPY",
+    "flag": "🇯🇵",
+    "symbol": "¥",
+  },
+  {
+    "code": "KAS",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "KAVA",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "KCS",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "KDA",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "KES",
+    "flag": "🇰🇪",
+    "symbol": "",
+  },
+  {
+    "code": "KGS",
+    "flag": "🇰🇬",
+    "symbol": "⃀",
+  },
+  {
+    "code": "KHR",
+    "flag": "🇰🇭",
+    "symbol": "៛",
+  },
+  {
+    "code": "KLAY",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "KMF",
+    "flag": "🇰🇲",
+    "symbol": "CF",
+  },
+  {
+    "code": "KNC",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "KPW",
+    "flag": "🇰🇵",
+    "symbol": "₩",
+  },
+  {
+    "code": "KRW",
+    "flag": "🇰🇷",
+    "symbol": "₩",
+  },
+  {
+    "code": "KSM",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "KWD",
+    "flag": "🇰🇼",
+    "symbol": "",
+  },
+  {
+    "code": "KYD",
+    "flag": "🇰🇾",
+    "symbol": "$",
+  },
+  {
+    "code": "KZT",
+    "flag": "🇰🇿",
+    "symbol": "₸",
+  },
+  {
+    "code": "LAK",
+    "flag": "🇱🇦",
+    "symbol": "₭",
+  },
+  {
+    "code": "LBP",
+    "flag": "🇱🇧",
+    "symbol": "L£",
+  },
+  {
+    "code": "LDO",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "LEO",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "LINK",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "LKR",
+    "flag": "🇱🇰",
+    "symbol": "Rs",
+  },
+  {
+    "code": "LRC",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "LRD",
+    "flag": "🇱🇷",
+    "symbol": "$",
+  },
+  {
+    "code": "LSL",
+    "flag": "🇱🇸",
+    "symbol": "",
+  },
+  {
+    "code": "LTC",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "LTL",
+    "flag": "🇱🇹",
+    "symbol": "Lt",
+  },
+  {
+    "code": "LUF",
+    "flag": "🇱🇺",
+    "symbol": "",
+  },
+  {
+    "code": "LUNA",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "LUNC",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "LVL",
+    "flag": "🇱🇻",
+    "symbol": "Ls",
+  },
+  {
+    "code": "LYD",
+    "flag": "🇱🇾",
+    "symbol": "",
+  },
+  {
+    "code": "MAD",
+    "flag": "🇲🇦",
+    "symbol": "",
+  },
+  {
+    "code": "MANA",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "MBX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "MDL",
+    "flag": "🇲🇩",
+    "symbol": "",
+  },
+  {
+    "code": "MGA",
+    "flag": "🇲🇬",
+    "symbol": "Ar",
+  },
+  {
+    "code": "MGF",
+    "flag": "🇲🇬",
+    "symbol": "",
+  },
+  {
+    "code": "MINA",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "MKD",
+    "flag": "🇲🇰",
+    "symbol": "",
+  },
+  {
+    "code": "MKR",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "MMK",
+    "flag": "🇲🇲",
+    "symbol": "K",
+  },
+  {
+    "code": "MNT",
+    "flag": "🇲🇳",
+    "symbol": "₮",
+  },
+  {
+    "code": "MOP",
+    "flag": "🇲🇴",
+    "symbol": "",
+  },
+  {
+    "code": "MRO",
+    "flag": "🇲🇷",
+    "symbol": "",
+  },
+  {
+    "code": "MRU",
+    "flag": "🇲🇷",
+    "symbol": "",
+  },
+  {
+    "code": "MTL",
+    "flag": "🇲🇹",
+    "symbol": "",
+  },
+  {
+    "code": "MUR",
+    "flag": "🇲🇺",
+    "symbol": "Rs",
+  },
+  {
+    "code": "MVR",
+    "flag": "🇲🇻",
+    "symbol": "",
+  },
+  {
+    "code": "MWK",
+    "flag": "🇲🇼",
+    "symbol": "",
+  },
+  {
+    "code": "MXN",
+    "flag": "🇲🇽",
+    "symbol": "$",
+  },
+  {
+    "code": "MXV",
+    "flag": "🇲🇽",
+    "symbol": "",
+  },
+  {
+    "code": "MYR",
+    "flag": "🇲🇾",
+    "symbol": "RM",
+  },
+  {
+    "code": "MZM",
+    "flag": "🇲🇿",
+    "symbol": "",
+  },
+  {
+    "code": "MZN",
+    "flag": "🇲🇿",
+    "symbol": "",
+  },
+  {
+    "code": "NAD",
+    "flag": "🇳🇦",
+    "symbol": "$",
+  },
+  {
+    "code": "NEAR",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "NEO",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "NEXO",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "NFT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "NGN",
+    "flag": "🇳🇬",
+    "symbol": "₦",
+  },
+  {
+    "code": "NIO",
+    "flag": "🇳🇮",
+    "symbol": "C$",
+  },
+  {
+    "code": "NLG",
+    "flag": "🇳🇱",
+    "symbol": "",
+  },
+  {
+    "code": "NOK",
+    "flag": "🇳🇴",
+    "symbol": "kr",
+  },
+  {
+    "code": "NPR",
+    "flag": "🇳🇵",
+    "symbol": "Rs",
+  },
+  {
+    "code": "NZD",
+    "flag": "🇳🇿",
+    "symbol": "$",
+  },
+  {
+    "code": "OKB",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "OMR",
+    "flag": "🇴🇲",
+    "symbol": "",
+  },
+  {
+    "code": "ONE",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "OP",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ORDI",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "PAB",
+    "flag": "🇵🇦",
+    "symbol": "",
+  },
+  {
+    "code": "PAXG",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "PEN",
+    "flag": "🇵🇪",
+    "symbol": "",
+  },
+  {
+    "code": "PEPE",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "PGK",
+    "flag": "🇵🇬",
+    "symbol": "",
+  },
+  {
+    "code": "PHP",
+    "flag": "🇵🇭",
+    "symbol": "₱",
+  },
+  {
+    "code": "PI",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "PKR",
+    "flag": "🇵🇰",
+    "symbol": "Rs",
+  },
+  {
+    "code": "PLN",
+    "flag": "🇵🇱",
+    "symbol": "zł",
+  },
+  {
+    "code": "POL",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "PTE",
+    "flag": "🇵🇹",
+    "symbol": "",
+  },
+  {
+    "code": "PYG",
+    "flag": "🇵🇾",
+    "symbol": "₲",
+  },
+  {
+    "code": "QAR",
+    "flag": "🇶🇦",
+    "symbol": "",
+  },
+  {
+    "code": "QNT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "QTUM",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ROL",
+    "flag": "🇷🇴",
+    "symbol": "",
+  },
+  {
+    "code": "RON",
+    "flag": "🇷🇴",
+    "symbol": "lei",
+  },
+  {
+    "code": "RPL",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "RSD",
+    "flag": "🇷🇸",
+    "symbol": "",
+  },
+  {
+    "code": "RUB",
+    "flag": "🇷🇺",
+    "symbol": "₽",
+  },
+  {
+    "code": "RUNE",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "RVN",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "RWF",
+    "flag": "🇷🇼",
+    "symbol": "RF",
+  },
+  {
+    "code": "SAND",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "SAR",
+    "flag": "🇸🇦",
+    "symbol": "",
+  },
+  {
+    "code": "SBD",
+    "flag": "🇸🇧",
+    "symbol": "$",
+  },
+  {
+    "code": "SCR",
+    "flag": "🇸🇨",
+    "symbol": "",
+  },
+  {
+    "code": "SDD",
+    "flag": "🇸🇩",
+    "symbol": "",
+  },
+  {
+    "code": "SDG",
+    "flag": "🇸🇩",
+    "symbol": "",
+  },
+  {
+    "code": "SEK",
+    "flag": "🇸🇪",
+    "symbol": "kr",
+  },
+  {
+    "code": "SGD",
+    "flag": "🇸🇬",
+    "symbol": "$",
+  },
+  {
+    "code": "SHIB",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "SHP",
+    "flag": "🇸🇭",
+    "symbol": "£",
+  },
+  {
+    "code": "SIT",
+    "flag": "🇸🇮",
+    "symbol": "",
+  },
+  {
+    "code": "SKK",
+    "flag": "🇸🇰",
+    "symbol": "",
+  },
+  {
+    "code": "SLE",
+    "flag": "🇸🇱",
+    "symbol": "",
+  },
+  {
+    "code": "SLL",
+    "flag": "🇸🇱",
+    "symbol": "",
+  },
+  {
+    "code": "SNX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "SOL",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "SOS",
+    "flag": "🇸🇴",
+    "symbol": "",
+  },
+  {
+    "code": "SPL",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "SRD",
+    "flag": "🇸🇷",
+    "symbol": "$",
+  },
+  {
+    "code": "SRG",
+    "flag": "🇸🇷",
+    "symbol": "",
+  },
+  {
+    "code": "SSP",
+    "flag": "🇸🇸",
+    "symbol": "£",
+  },
+  {
+    "code": "STD",
+    "flag": "🇸🇹",
+    "symbol": "",
+  },
+  {
+    "code": "STN",
+    "flag": "🇸🇹",
+    "symbol": "Db",
+  },
+  {
+    "code": "STX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "SUI",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "SVC",
+    "flag": "🇸🇻",
+    "symbol": "",
+  },
+  {
+    "code": "SYP",
+    "flag": "🇸🇾",
+    "symbol": "£",
+  },
+  {
+    "code": "SZL",
+    "flag": "🇸🇿",
+    "symbol": "",
+  },
+  {
+    "code": "THB",
+    "flag": "🇹🇭",
+    "symbol": "฿",
+  },
+  {
+    "code": "THETA",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "TJS",
+    "flag": "🇹🇯",
+    "symbol": "",
+  },
+  {
+    "code": "TMM",
+    "flag": "🇹🇲",
+    "symbol": "",
+  },
+  {
+    "code": "TMT",
+    "flag": "🇹🇲",
+    "symbol": "",
+  },
+  {
+    "code": "TND",
+    "flag": "🇹🇳",
+    "symbol": "",
+  },
+  {
+    "code": "TOP",
+    "flag": "🇹🇴",
+    "symbol": "T$",
+  },
+  {
+    "code": "TRL",
+    "flag": "🇹🇷",
+    "symbol": "",
+  },
+  {
+    "code": "TRX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "TRY",
+    "flag": "🇹🇷",
+    "symbol": "₺",
+  },
+  {
+    "code": "TTD",
+    "flag": "🇹🇹",
+    "symbol": "$",
+  },
+  {
+    "code": "TUSD",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "TVD",
+    "flag": "🇹🇻",
+    "symbol": "",
+  },
+  {
+    "code": "TWD",
+    "flag": "🇹🇼",
+    "symbol": "$",
+  },
+  {
+    "code": "TWT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "TZS",
+    "flag": "🇹🇿",
+    "symbol": "",
+  },
+  {
+    "code": "UAH",
+    "flag": "🇺🇦",
+    "symbol": "₴",
+  },
+  {
+    "code": "UGX",
+    "flag": "🇺🇬",
+    "symbol": "",
+  },
+  {
+    "code": "UNI",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "USD",
+    "flag": "🇺🇸",
+    "symbol": "$",
+  },
+  {
+    "code": "USDC",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "USDD",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "USDP",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "USDT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "UYU",
+    "flag": "🇺🇾",
+    "symbol": "$",
+  },
+  {
+    "code": "UZS",
+    "flag": "🇺🇿",
+    "symbol": "",
+  },
+  {
+    "code": "VAL",
+    "flag": "🇻🇦",
+    "symbol": "",
+  },
+  {
+    "code": "VEB",
+    "flag": "🇻🇪",
+    "symbol": "",
+  },
+  {
+    "code": "VED",
+    "flag": "🇻🇪",
+    "symbol": "",
+  },
+  {
+    "code": "VEF",
+    "flag": "🇻🇪",
+    "symbol": "Bs",
+  },
+  {
+    "code": "VES",
+    "flag": "🇻🇪",
+    "symbol": "",
+  },
+  {
+    "code": "VET",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "VND",
+    "flag": "🇻🇳",
+    "symbol": "₫",
+  },
+  {
+    "code": "VUV",
+    "flag": "🇻🇺",
+    "symbol": "",
+  },
+  {
+    "code": "WAVES",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "WEMIX",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "WOO",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "WST",
+    "flag": "🇼🇸",
+    "symbol": "",
+  },
+  {
+    "code": "XAF",
+    "flag": "",
+    "symbol": "FCFA",
+  },
+  {
+    "code": "XAG",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XAU",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XAUT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XBT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XCD",
+    "flag": "",
+    "symbol": "$",
+  },
+  {
+    "code": "XCG",
+    "flag": "",
+    "symbol": "Cg.",
+  },
+  {
+    "code": "XCH",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XDC",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XDR",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XEC",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XEM",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XLM",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XMR",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XOF",
+    "flag": "",
+    "symbol": "F CFA",
+  },
+  {
+    "code": "XPD",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XPF",
+    "flag": "",
+    "symbol": "CFPF",
+  },
+  {
+    "code": "XPT",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XRP",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "XTZ",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "YER",
+    "flag": "🇾🇪",
+    "symbol": "",
+  },
+  {
+    "code": "ZAR",
+    "flag": "🇿🇦",
+    "symbol": "R",
+  },
+  {
+    "code": "ZEC",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ZIL",
+    "flag": "",
+    "symbol": "",
+  },
+  {
+    "code": "ZMK",
+    "flag": "🇿🇲",
+    "symbol": "",
+  },
+  {
+    "code": "ZMW",
+    "flag": "🇿🇲",
+    "symbol": "ZK",
+  },
+  {
+    "code": "ZWD",
+    "flag": "🇿🇼",
+    "symbol": "",
+  },
+  {
+    "code": "ZWG",
+    "flag": "🇿🇼",
+    "symbol": "",
+  },
+  {
+    "code": "ZWL",
+    "flag": "🇿🇼",
+    "symbol": "",
+  },
+]
+`;

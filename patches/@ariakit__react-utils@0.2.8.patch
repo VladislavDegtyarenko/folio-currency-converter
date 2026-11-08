@@ -1,0 +1,32 @@
+diff --git a/dist/index.js b/dist/index.js
+index 1a872187fd3b3e7e529497cf3b9852e8c98881ac..aa3f65163df23a37396866e494121d7000f4babd 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -119,8 +119,7 @@ function useLiveRef(value) {
+ }
+ /**
+ * Creates a stable callback function that has access to the latest state and
+-* can be used within event handlers and effect callbacks. Throws when used in
+-* the render phase.
++* can be used within event handlers and effect callbacks.
+ * @example
+ * function Component(props) {
+ *   const onClick = useEvent(props.onClick);
+@@ -128,13 +127,10 @@ function useLiveRef(value) {
+ * }
+ */
+ function useEvent(callback) {
+-	const ref = useRef(() => {
+-		throw new Error("Cannot call an event handler while rendering.");
+-	});
+-	useEventUpdate(() => {
+-		ref.current = callback;
+-	});
+-	return useCallback((...args) => ref.current?.(...args), []);
++	// Preact attaches refs before layout effects. Its native effect event keeps
++	// the callback current before Ariakit invokes it from a ref callback.
++	const event = React.useEffectEvent((...args) => callback?.(...args));
++	return useCallback(event, []);
+ }
+ /**
+ * Creates a React state that calls a callback function whenever the state

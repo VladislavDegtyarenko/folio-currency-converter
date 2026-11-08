@@ -1,0 +1,49 @@
+diff --git a/dist/__chunks/CDh2UhnG.js b/dist/__chunks/CDh2UhnG.js
+index b4fd212525f9f46f0b1689d744b52546452d4ea3..42f44e82cb6776c6e45aa725b5fa8ca919df6fba 100644
+--- a/dist/__chunks/CDh2UhnG.js
++++ b/dist/__chunks/CDh2UhnG.js
+@@ -9,7 +9,23 @@ const sourceEvents = /* @__PURE__ */ new WeakMap();
+ */
+ function fireProxiedKeyboardEvent(element, source, eventInit) {
+ 	const { KeyboardEvent } = getWindow(element);
+-	const event = new KeyboardEvent(source.type, eventInit);
++	// Native KeyboardEvent fields are inherited, so spreading a Preact event
++	// does not copy them. Read the event dictionary before applying overrides.
++	const event = new KeyboardEvent(source.type, {
++		key: source.key,
++		code: source.code,
++		location: source.location,
++		ctrlKey: source.ctrlKey,
++		shiftKey: source.shiftKey,
++		altKey: source.altKey,
++		metaKey: source.metaKey,
++		repeat: source.repeat,
++		isComposing: source.isComposing,
++		bubbles: source.bubbles,
++		cancelable: source.cancelable,
++		composed: source.composed,
++		...eventInit,
++	});
+ 	sourceEvents.set(event, getKeyboardEventSource(source));
+ 	return element.dispatchEvent(event);
+ }
+diff --git a/dist/focusable/focusable.js b/dist/focusable/focusable.js
+index a40570c4a4a1e0c5d9e40021255f348259801ae5..312aad5373b824d2814958dbf210aea962d0064b 100644
+--- a/dist/focusable/focusable.js
++++ b/dist/focusable/focusable.js
+@@ -164,7 +164,14 @@ const useFocusable = createHook(function useFocusable({ focusable = true, access
+ 	const onClickCapture = useDisableEvent(props.onClickCapture, disabled);
+ 	const onAuxClickCapture = useDisableEvent(props.onAuxClickCapture, disabled);
+ 	const handleFocusVisible = (event, currentTarget) => {
+-		if (currentTarget) event.currentTarget = currentTarget;
++		if (currentTarget) {
++			// Preact passes native events, whose currentTarget is a read-only getter.
++			Object.defineProperty(event, "currentTarget", {
++				configurable: true,
++				writable: true,
++				value: currentTarget,
++			});
++		}
+ 		if (!focusable) return;
+ 		const element = event.currentTarget;
+ 		if (!element) return;

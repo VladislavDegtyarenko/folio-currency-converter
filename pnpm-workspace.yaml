@@ -1,0 +1,5 @@
+allowBuilds:
+  esbuild: true
+patchedDependencies:
+  "@ariakit/react-components@0.7.1": patches/@ariakit__react-components@0.7.1.patch
+  "@ariakit/react-utils@0.2.8": patches/@ariakit__react-utils@0.2.8.patch

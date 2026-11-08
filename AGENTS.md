@@ -13,7 +13,8 @@
 
 - Read applicable parent instructions and the user's global code-style guides when available.
 - Inspect `git status`, branch and configured remotes. Preserve existing uncommitted work.
-- Use a `codex/` feature branch. Do not commit, push or merge unless explicitly requested; merging needs specific confirmation.
+- Name branches by the purpose of the change: `feature/` for new functionality, `bugfix/` for bug fixes, and `chore/` for refactoring, documentation, maintenance, and small improvements to existing functionality. Use a short, descriptive lowercase name with hyphens after the prefix, such as `chore/rewrite-readme`. Follow an explicit user request for a different branch name.
+- Do not commit, push or merge unless explicitly requested; merging needs specific confirmation.
 - Use pnpm. Ask before adding a production dependency unless the user already explicitly authorized it.
 - Do not read or expose secrets, `.env` files, cookies or browser sessions.
 

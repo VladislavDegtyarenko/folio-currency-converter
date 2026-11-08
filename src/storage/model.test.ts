@@ -4,6 +4,18 @@ import { restoreRates } from "../rates/model";
 import { applyRates, DEFAULT_STATE, restoreState } from "./model";
 
 describe("persisted state boundary", () => {
+  it.each(["es", "pt", "fr", "de", "hi"])(
+    "preserves the saved %s language after serialization",
+    (language) => {
+      const saved = {
+        ...DEFAULT_STATE,
+        settings: { ...DEFAULT_STATE.settings, language },
+      };
+      expect(
+        restoreState(JSON.parse(JSON.stringify(saved))).settings.language,
+      ).toBe(language);
+    },
+  );
   it("keeps large valid cryptocurrency amounts across reopening", () => {
     const rates = restoreRates({
       date: "2026-11-03",

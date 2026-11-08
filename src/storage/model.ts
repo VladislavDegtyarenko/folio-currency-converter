@@ -4,7 +4,11 @@ import {
   isCurrencyCode,
 } from "../converter/currency/currencies";
 import { type Rates, restoreRates } from "../rates/model";
-import { DEFAULT_SETTINGS, type Settings } from "../settings/model";
+import {
+  DEFAULT_SETTINGS,
+  type Settings,
+  SUPPORTED_LANGUAGES,
+} from "../settings/model";
 
 export type SavedState = {
   version: 1;
@@ -56,7 +60,9 @@ export function restoreState(value: unknown): SavedState {
     : [];
   const settings = isRecord(value.settings) ? value.settings : {};
   const restoredSettings: Settings = {
-    language: ["auto", "en", "ru", "uk"].includes(String(settings.language))
+    language: ["auto", ...SUPPORTED_LANGUAGES].includes(
+      String(settings.language),
+    )
       ? (settings.language as Settings["language"])
       : "auto",
     theme: ["system", "light", "dark"].includes(String(settings.theme))

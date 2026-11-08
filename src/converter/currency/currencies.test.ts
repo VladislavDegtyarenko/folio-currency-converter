@@ -13,7 +13,7 @@ describe("API currency catalog", () => {
   it("renders every known API identifier in every interface language", () => {
     const codes = Object.keys(CURRENCY_NAMES);
 
-    for (const locale of ["en", "ru", "uk"]) {
+    for (const locale of ["en", "ru", "uk", "es", "pt", "fr", "de", "hi"]) {
       const options = currencyOptions(codes, locale);
       expect(options).toHaveLength(codes.length);
       expect(options.every(({ name }) => name.length > 0)).toBe(true);

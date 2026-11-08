@@ -12,8 +12,13 @@ export function LanguageSetting({ value, messages, onChange }: Props) {
   const options = [
     { value: "auto", label: messages.browser },
     { value: "en", label: "English" },
-    { value: "ru", label: "Русский" },
+    { value: "es", label: "Español" },
+    { value: "pt", label: "Português (Brasil)" },
+    { value: "fr", label: "Français" },
+    { value: "de", label: "Deutsch" },
     { value: "uk", label: "Українська" },
+    { value: "ru", label: "Русский" },
+    { value: "hi", label: "हिन्दी" },
   ];
 
   return (

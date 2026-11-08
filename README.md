@@ -4,7 +4,7 @@ Folio is a Chrome extension for converting an amount into one or several currenc
 
 - **Single mode** shows a currency pair. Edit either amount or swap the currencies.
 - **Multiple mode** shows a list of currencies. Edit any amount to recalculate the others, then add, replace, remove, or reorder rows.
-- **Display settings** include English, Russian, and Ukrainian interfaces, light and dark themes, compact rows, and adjustable precision, names, symbols, and flags.
+- **Display settings** include English, Russian, Ukrainian, Spanish, Brazilian Portuguese, French, German, and Hindi interfaces, light and dark themes, compact rows, and adjustable precision, names, symbols, and flags.
 
 Rates come from [exchange-api](https://github.com/fawazahmed0/exchange-api), which publishes daily data. Folio offers every code in the validated response, including cryptocurrencies, metals, and historical currencies. The first successful download requires an internet connection. After that, saved rates remain available offline.
 
@@ -111,7 +111,7 @@ An unfamiliar code from the source is still available even if Folio has no name 
 
 Settings apply immediately. The display controls share one live preview showing names, symbols, flags, precision, and compactness.
 
-**Browser default** follows the browser's language preferences and uses its first locale, the language and region setting, for numbers and dates. Unsupported interface languages fall back to English. Selecting English, Russian, or Ukrainian changes the popup's interface, subtitle, and document title. Chrome chooses the extension name, description, and toolbar tooltip separately using its own interface language.
+**Browser default** follows the browser's language preferences and uses its first locale, the language and region setting, for numbers and dates. Unsupported interface languages fall back to English. Selecting a supported language changes the popup's interface, subtitle, and document title. Chrome chooses the extension name, description, and toolbar tooltip separately using its own interface language.
 
 Flags are decorative hints. For example, EUR uses the EU flag and USD uses the US flag. They do not represent every country using a currency, and their appearance depends on the operating system.
 
@@ -225,7 +225,7 @@ A minimum Chrome version has not been verified for the complete extension. The a
 Keep each change with the capability that owns it:
 
 - **Currencies:** new codes from a validated response become available automatically. Add missing names in `src/converter/currency/currencyNames.ts`, and symbols or decorative flags in `src/converter/currency/currencies.ts`. Older 12-currency saves gain the full list after a successful refresh. Do not assign country flags to cryptocurrencies or metals.
-- **Interface text:** update all three dictionaries in `src/i18n/messages.ts`. Chrome's extension name and description are separate, in `public/_locales/<language>/messages.json`.
+- **Interface text:** update the English, Russian, and Ukrainian dictionaries in `src/i18n/messages.ts` and the Spanish, Portuguese, French, German, and Hindi dictionaries in `src/i18n/<language>/messages.ts`. Chrome's extension name and description are separate, in `public/_locales/<language>/messages.json`.
 - **Settings:** define them in `src/settings/model.ts` and validate them in `src/storage/model.ts`. Give older saves defaults that preserve existing preferences.
 - **Conversion rules:** use `src/converter/amounts.ts` and add focused calculation tests. Keep editable text formatting in `src/converter/money-input/`.
 - **Persistence:** keep reads, validation, and ordered writes in `src/storage/`. Preserve `folio.state.v1` unless implementing a compatible migration.

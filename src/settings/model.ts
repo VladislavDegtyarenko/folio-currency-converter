@@ -1,4 +1,16 @@
-export type Language = "auto" | "en" | "ru" | "uk";
+export const SUPPORTED_LANGUAGES = [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "de",
+  "uk",
+  "ru",
+  "hi",
+] as const;
+
+export type UiLanguage = (typeof SUPPORTED_LANGUAGES)[number];
+export type Language = "auto" | UiLanguage;
 
 export type Settings = {
   language: Language;

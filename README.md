@@ -133,10 +133,11 @@ Packaging stops if any step fails. The archive contains only the contents of
 for the same version, so files removed from a later build do not remain in it.
 Git ignores `releases/`. Packaging does not upload or publish the extension.
 
-The privacy policy page is in `docs/index.html`. To host it with GitHub Pages,
+The privacy policy page is in `docs/privacy-policy/index.html`. To host it with GitHub Pages,
 publish the reviewed policy to a branch and select that branch's `/docs` folder
 in the repository's Pages settings. The page is separate from the extension
-package. Verify the public URL before adding it to the Chrome Web Store listing.
+package. Its public path is `/folio-currency-converter/privacy-policy/`, leaving
+the site root available for a future homepage.
 
 ### Checks and formatting
 

@@ -1,5 +1,15 @@
 # Folio: Currency Converter
 
+<p align="center">
+  <img src="public/icons/icon-128.png" alt="Folio icon" width="96" />
+</p>
+
+<p align="center">
+  <img src="docs/images/folio-preview.jpg" alt="Folio currency converter showing a list of currencies and converted amounts" width="420" />
+</p>
+
+[Open Folio in the Chrome Web Store](https://chromewebstore.google.com/detail/folio-currency-converter/ipalahidibcjajbjbcdjphamlbhneomn)
+
 Folio is a Chrome extension for converting an amount into one or several currencies. It opens from the toolbar and saves your currency list, amounts, settings, and last valid rates on your device.
 
 - **Single mode** shows a currency pair. Edit either amount or swap the currencies.

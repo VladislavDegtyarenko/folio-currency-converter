@@ -1,5 +1,5 @@
 import { expect, it } from "vitest";
-import { createAmountFormat } from "./amountDraft";
+import { createAmountFormat } from "./draft/createAmountFormat";
 import { formatEditedOperand, formatSplitOperand } from "./expressionOperand";
 
 it.each([

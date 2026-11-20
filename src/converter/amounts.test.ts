@@ -42,6 +42,19 @@ describe("amount input and conversion", () => {
   ])("rejects ambiguous or unsafe input %s", (input) => {
     expect(parseAmount(input)).toBeNull();
   });
+  it.each([
+    ["999999999998.99999999", 999_999_999_999],
+    ["999999999999", 999_999_999_999],
+    ["999999999999.00000000", 999_999_999_999],
+    ["999999999999,00000000", 999_999_999_999],
+    ["999999999999.00000001", null],
+    ["999999999999,00000001", null],
+  ])(
+    "checks the exact amount %s before converting it to a number",
+    (input, expected) => {
+      expect(parseAmount(input)).toBe(expected);
+    },
+  );
   it("converts from a shared amount without compounded rounding", () => {
     expect(convertAmount({ euros: 200, code: "USD", rates: RATES })).toBe(250);
     expect(convertAmount({ euros: 200, code: "UAH", rates: RATES })).toBe(

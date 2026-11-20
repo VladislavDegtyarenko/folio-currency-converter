@@ -7,8 +7,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { createAmountFormat } from "./amountDraft";
 import { formatAmountEdit } from "./amountExpression";
+import { createAmountFormat } from "./draft/createAmountFormat";
 import {
   EXPRESSION_OPERATORS,
   formatEditedOperand,

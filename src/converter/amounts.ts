@@ -11,18 +11,28 @@ export function maximumEuros(rates: Rates) {
   );
 }
 
-/** Accepts plain decimal input with either separator, rejecting ambiguous grouping. */
+/** Parses a plain decimal with either separator, checking the limit before rounding. */
 export function parseAmount(text: string): number | null {
   const value = text.trim();
-  const pattern = /^\d{1,12}(?:[.,]\d{0,8})?$/; // Plain nonnegative decimal, at most 12 integer and 8 fractional digits.
+  const pattern = /^(\d{1,12})(?:[.,](\d{0,8}))?$/; // Captures up to 12 integer and 8 fractional digits.
+  const parts = pattern.exec(value);
 
-  if (!pattern.test(value)) {
+  if (!parts) {
     return null;
   }
 
-  const amount = Number(value.replace(",", "."));
+  const [, whole, fraction = ""] = parts;
+  const integer = Number(whole);
 
-  return Number.isFinite(amount) && amount <= MAX_AMOUNT ? amount : null;
+  // A nonzero fraction can disappear when the full amount is converted to a number.
+  if (
+    integer > MAX_AMOUNT ||
+    (integer === MAX_AMOUNT && Number(fraction) > 0)
+  ) {
+    return null;
+  }
+
+  return Number(value.replace(",", "."));
 }
 
 /** Converts the common euro amount using a single USD-based snapshot. */

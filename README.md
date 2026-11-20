@@ -89,7 +89,7 @@ Click an amount and type. A valid edit immediately recalculates the other fields
 
 Thousands separators remain visible as you type. The period and comma keys enter the decimal separator used by the selected language and region. When pasting, use that format: for example, `1,234.50` in English or `1 234,50` in Russian.
 
-Amounts allow up to 12 digits before the decimal separator and 8 after it. Fractional digits and a trailing separator remain while editing. Display rounding applies when you leave the field.
+Amounts allow up to 12 digits before the decimal separator and 8 after it. The maximum is `999,999,999,999` for direct input, operands, and calculation results. Folio checks the exact amount before rounding. Fractional digits and a trailing separator remain while editing. Display rounding applies when you leave the field.
 
 #### Calculate in an amount field
 

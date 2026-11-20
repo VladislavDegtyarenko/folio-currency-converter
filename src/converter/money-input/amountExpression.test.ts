@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { createAmountFormat } from "./amountDraft";
 import { formatAmountEdit } from "./amountExpression";
+import { createAmountFormat } from "./draft/createAmountFormat";
 
 /** Simulates editing a localized amount or expression. */
 function edit(text: string, locale = "en-US", caret = text.length) {
@@ -130,4 +130,28 @@ describe("amount expressions", () => {
       amount: 1 / 3,
     });
   });
+
+  it.each([
+    ["en-US", "999,999,999,999", ".00000001"],
+    ["de-DE", "999.999.999.999", ",00000001"],
+  ])(
+    "rejects amounts above the exact limit in %s",
+    (locale, maximum, fraction) => {
+      const aboveLimit = maximum + fraction;
+
+      for (const text of [
+        aboveLimit,
+        `${aboveLimit} + 0`,
+        `${aboveLimit} + 0=`,
+        `${maximum} + 0${fraction}`,
+        `${maximum} + 0${fraction}=`,
+      ]) {
+        expect(edit(text, locale)).toEqual({
+          text,
+          caret: text.length,
+          amount: null,
+        });
+      }
+    },
+  );
 });

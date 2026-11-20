@@ -1,9 +1,7 @@
-import {
-  type AmountFormat,
-  formatAmountDraft,
-  getGroupDeletion,
-  parseAmountOperand,
-} from "./amountDraft";
+import { type AmountFormat } from "./draft/createAmountFormat";
+import { formatAmountDraft } from "./draft/formatAmountDraft";
+import { getGroupDeletion } from "./draft/getGroupDeletion";
+import { parseAmountOperand } from "./draft/parseAmountOperand";
 
 export const EXPRESSION_OPERATORS = /([+\-−*×/÷])/; // Splits an expression at operators and keeps their symbols.
 

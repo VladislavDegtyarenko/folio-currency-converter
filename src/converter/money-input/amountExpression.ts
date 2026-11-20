@@ -1,14 +1,10 @@
-import {
-  type AmountFormat,
-  formatAmountDraft,
-  parseAmountOperand,
-} from "./amountDraft";
-import {
-  addFractions,
-  formatFraction,
-  fractionToAmount,
-} from "./amountFraction";
+import { type AmountFormat } from "./draft/createAmountFormat";
+import { formatAmountDraft } from "./draft/formatAmountDraft";
+import { parseAmountOperand } from "./draft/parseAmountOperand";
 import { EXPRESSION_OPERATORS } from "./expressionOperand";
+import { addFractions } from "./fraction/addFractions";
+import { formatFraction } from "./fraction/formatFraction";
+import { fractionToAmount } from "./fraction/fractionToAmount";
 
 type AmountEdit = ReturnType<typeof formatAmountDraft> & {
   isExpression?: boolean;

@@ -83,13 +83,27 @@ The installed extension uses `chrome.storage.local`, Chrome's local extension st
 
 ### Enter amounts
 
+#### Number format
+
 Click an amount and type. A valid edit immediately recalculates the other fields in either mode. The active input is highlighted while it has focus.
 
 Thousands separators remain visible as you type. The period and comma keys enter the decimal separator used by the selected language and region. When pasting, use that format: for example, `1,234.50` in English or `1 234,50` in Russian.
 
-Amounts allow up to 12 digits before the decimal separator and 8 after it. Fractional digits and a trailing separator remain while editing. Display rounding applies when you leave the field.
+Amounts allow up to 12 digits before the decimal separator and 8 after it. The maximum is `999,999,999,999` for direct input, operands, and calculation results. Folio checks the exact amount before rounding. Fractional digits and a trailing separator remain while editing. Display rounding applies when you leave the field.
 
-An invalid amount has a red background and a left stripe, with a description available to screen readers. Other fields keep the last valid calculation. Press Escape to cancel the invalid draft, or enter a valid amount in another field to replace it with a calculated value.
+#### Calculate in an amount field
+
+Type a calculation in any amount field to update the conversion as you type. For example, `1,200.50 +  3 * 2` converts `1,206.5` in English. Press `=` from anywhere in the field to replace the entire expression with the result. Use the separators for your language and region. Spaces around operators are optional. Multiplication and division happen before addition and subtraction.
+
+If you change the language and number format in Settings, Folio replaces the expression with the last valid amount in the new format. If a refresh changes the exchange rate for the currency in that field, Folio displays the amount at the updated rate.
+
+Folio shows a calculation example the first time you focus an amount field. The hint closes when you complete a calculation, press Escape, use the close button, or move away from it. Settings keeps the full instructions under **Questions and answers**.
+
+After `=`, the field shows up to eight decimal places while you edit. Conversions use the unrounded result. Leaving an unfinished calculation, dividing by zero, or getting a negative result marks the field as invalid.
+
+#### Fix an invalid amount
+
+An invalid amount has a red background and a left stripe, with a description available to screen readers. Other fields keep the last valid calculation. Press Escape to cancel an invalid or unfinished draft, or enter a valid amount in another field to replace the draft with a calculated value.
 
 ### Choose and reorder currencies
 

@@ -29,6 +29,7 @@ export function useConverter() {
   const [currencyHighlight, setCurrencyHighlight] =
     useState<CurrencyHighlight | null>(null);
   const [inputRevision, setInputRevision] = useState(0);
+  const latestInputRevision = useRef(0);
   const removed = useRef<{
     code: CurrencyCode;
     index: number;
@@ -67,7 +68,9 @@ export function useConverter() {
 
   const input = useCallback(
     (code: CurrencyCode, amount: number) => {
-      setInputRevision((revision) => revision + 1);
+      latestInputRevision.current += 1;
+      const revision = latestInputRevision.current;
+      setInputRevision(revision);
       updateState((previous) =>
         previous.rates
           ? {
@@ -77,6 +80,7 @@ export function useConverter() {
             }
           : previous,
       );
+      return revision;
     },
     [updateState],
   );

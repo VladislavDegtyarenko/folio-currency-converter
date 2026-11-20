@@ -71,6 +71,12 @@ export const DE: Messages = {
   currencyDisplay: "Währungsanzeige",
   currencyPreview: "Vorschau der Währung",
   faq: "Fragen und Antworten",
+  calculationHintTitle: "Direkt im Feld rechnen",
+  calculationHintText:
+    "Die Umrechnung läuft beim Tippen. Drücke =, um das Ergebnis ins Feld zu übernehmen.",
+  calculationInfo: "Wie rechne ich in einem Betragsfeld?",
+  calculationDetails:
+    "Verwende +, -, * oder / in einem Betragsfeld. Die Umrechnung wird schon beim Tippen aktualisiert. Drücke =, um die Rechnung durch ihr Ergebnis zu ersetzen. Leerzeichen um die Rechenzeichen sind erlaubt. Multiplikation und Division werden zuerst ausgeführt. Das Ergebnis muss ein gültiger, nicht negativer Betrag sein.",
   rateInfo: "Über die Kurse",
   rateDetails:
     "Tageskurse von exchange-api. Beim Aktualisieren wird nach neuen Daten gesucht; gespeicherte Kurse sind offline verfügbar.",

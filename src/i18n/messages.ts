@@ -66,6 +66,12 @@ export const EN = {
   currencyDisplay: "Currency display",
   currencyPreview: "Currency preview",
   faq: "Questions and answers",
+  calculationHintTitle: "Quick calculations",
+  calculationHintText:
+    "The conversion updates as you type. Press = to replace the expression with its result.",
+  calculationInfo: "How do I calculate in an amount field?",
+  calculationDetails:
+    "Use +, -, * or / in an amount field. The conversion updates as you type. Press = to replace the expression with its result. Spaces around operators are fine. Multiplication and division happen first. The result must be a valid nonnegative amount.",
   rateInfo: "About rates",
   rateDetails:
     "Daily rates from exchange-api. Refresh checks for updates; saved rates remain available offline.",
@@ -146,6 +152,12 @@ export const RU: Messages = {
   currencyDisplay: "Отображение валют",
   currencyPreview: "Пример строки валюты",
   faq: "Вопросы и ответы",
+  calculationHintTitle: "Считайте прямо в поле",
+  calculationHintText:
+    "Валюты пересчитываются по мере ввода. Нажмите =, чтобы подставить результат.",
+  calculationInfo: "Как считать прямо в поле суммы?",
+  calculationDetails:
+    "Введите выражение со знаками +, -, * или /. Пересчёт валют обновляется по мере ввода. Нажмите =, чтобы заменить выражение результатом. Вокруг знаков можно ставить пробелы. Умножение и деление выполняются первыми. Результат должен быть допустимой неотрицательной суммой.",
   rateInfo: "О курсах",
   rateDetails:
     "Ежедневные курсы из exchange-api. Обновление проверяет новые данные; сохранённые курсы доступны без интернета.",
@@ -224,6 +236,12 @@ export const UK: Messages = {
   currencyDisplay: "Відображення валют",
   currencyPreview: "Приклад рядка валюти",
   faq: "Запитання та відповіді",
+  calculationHintTitle: "Рахуйте прямо в полі",
+  calculationHintText:
+    "Валюти перераховуються під час введення. Натисніть =, щоб підставити результат.",
+  calculationInfo: "Як рахувати прямо в полі суми?",
+  calculationDetails:
+    "Введіть вираз зі знаками +, -, * або /. Перерахунок валют оновлюється під час введення. Натисніть =, щоб замінити вираз результатом. Навколо знаків можна ставити пробіли. Множення та ділення виконуються першими. Результат має бути допустимою невід’ємною сумою.",
   rateInfo: "Про курси",
   rateDetails:
     "Щоденні курси з exchange-api. Оновлення перевіряє нові дані; збережені курси доступні без інтернету.",

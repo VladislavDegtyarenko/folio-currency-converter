@@ -1,10 +1,11 @@
-import { type formatAmountDraft } from "./amountDraft";
+import { type formatAmountEdit } from "./amountExpression";
 
-export type InputDraft = ReturnType<typeof formatAmountDraft> & {
+export type InputDraft = ReturnType<typeof formatAmountEdit> & {
   revision: number;
+  isSubmitted?: boolean;
 };
 
-/** Discards an invalid draft after a successful edit, even when the numeric result is unchanged. */
+/** Discards a stale expression or invalid draft after another field's valid edit. */
 export function getCurrentInputDraft({
   draft,
   inputRevision,
@@ -12,7 +13,11 @@ export function getCurrentInputDraft({
   draft: InputDraft | null;
   inputRevision: number;
 }): InputDraft | null {
-  if (draft?.amount === null && draft.revision !== inputRevision) {
+  if (
+    draft &&
+    (draft.amount === null || draft.isExpression) &&
+    draft.revision < inputRevision
+  ) {
     return null;
   }
 

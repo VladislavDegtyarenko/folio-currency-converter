@@ -262,6 +262,23 @@ it.each(["single", "multiple"] as const)(
       expect(euros.selectionStart).toBe(7);
       expect(dollars.value).toBe("185,185.50");
 
+      await enter(euros, "12345");
+      expect(euros.value).toBe("12,345");
+      await act(async () => {
+        euros.value = "12,3*45";
+        euros.setSelectionRange(5, 5);
+        euros.dispatchEvent(
+          new InputEvent("input", {
+            inputType: "insertText",
+            data: "*",
+            bubbles: true,
+          }),
+        );
+      });
+      expect(euros.value).toBe("123*45");
+      expect(euros.selectionStart).toBe(4);
+      expect(dollars.value).toBe("8,302.50");
+
       await enter(euros, "1 / 300000000=");
       expect(euros.value).toBe("0");
       await act(async () => {
@@ -278,6 +295,32 @@ it.each(["single", "multiple"] as const)(
           JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}").euros,
         ).toBe(1 / 300000000);
       });
+
+      await act(async () => euros.blur());
+      await act(async () => {
+        euros.focus();
+        euros.dispatchEvent(equals);
+      });
+      expect(euros.value).toBe("0.00");
+      expect(JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}").euros).toBe(
+        1 / 300000000,
+      );
+
+      await enter(dollars, "100 + 50=");
+      expect(euros.value).toBe("100.00");
+      fetchRates.mockResolvedValueOnce(
+        Response.json({
+          date: "2026-11-21",
+          usd: { USD: 1, EUR: 0.5 },
+        }),
+      );
+      await act(async () => refresh?.click());
+      await vi.waitFor(() => expect(dollars.value).toBe("200.00"));
+      expect(document.activeElement).toBe(dollars);
+      await act(async () => {
+        dollars.dispatchEvent(equals);
+      });
+      expect(euros.value).toBe("100.00");
     } finally {
       await act(async () => render(null, root));
       root.remove();

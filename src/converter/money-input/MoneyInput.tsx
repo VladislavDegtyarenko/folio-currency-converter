@@ -28,10 +28,12 @@ export function MoneyInput({
   onChange,
 }: Props) {
   const hint = useCalculationHint();
+  const formattedValue = formatAmount({ value, locale, digits });
   const rate = useSavedState(({ state: { rates } }) =>
     rates ? rates.usd[code] / rates.usd.EUR : undefined,
   );
   const input = useAmountInput({
+    formattedValue,
     inputRevision,
     locale,
     rate,
@@ -67,7 +69,7 @@ export function MoneyInput({
         }
         autoComplete="off"
         spellCheck={false}
-        value={input.draftText ?? formatAmount({ value, locale, digits })}
+        value={input.draftText ?? formattedValue}
         onFocus={(event) => hint.show(event.currentTarget)}
         onChange={input.handleChange}
         onCompositionStart={input.handleCompositionStart}

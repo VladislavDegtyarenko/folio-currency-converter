@@ -10,12 +10,15 @@ import {
 import { createAmountFormat } from "./amountDraft";
 import { formatAmountEdit } from "./amountExpression";
 import {
+  EXPRESSION_OPERATORS,
   formatEditedOperand,
+  formatSplitOperand,
   getOperandGroupDeletion,
 } from "./expressionOperand";
 import { getCurrentInputDraft, type InputDraft } from "./inputDraft";
 
 type Options = {
+  formattedValue: string;
   inputRevision: number;
   locale: string;
   rate: number | undefined;
@@ -25,6 +28,7 @@ type Options = {
 
 /** Keeps the editable text and caret in sync with the shared amount. */
 export function useAmountInput({
+  formattedValue,
   inputRevision,
   locale,
   rate,
@@ -44,7 +48,9 @@ export function useAmountInput({
   }, [locale]);
 
   useLayoutEffect(() => {
-    setDraft((current) => (current?.isExpression ? null : current));
+    setDraft((current) =>
+      current?.isExpression || current?.isSubmitted ? null : current,
+    );
   }, [rate]);
 
   useLayoutEffect(() => {
@@ -71,6 +77,22 @@ export function useAmountInput({
     }
   }
 
+  function submit() {
+    if (!draft) {
+      return;
+    }
+
+    if (draft.isSubmitted && draft.amount !== null) {
+      const revision = onAmountChange(draft.amount);
+      setDraft({ ...draft, revision });
+      return;
+    }
+
+    const text = draft.text.trimEnd();
+    const submitted = text.endsWith("=") ? text : `${text}=`;
+    edit(submitted, submitted.length);
+  }
+
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { value: text, selectionStart } = event.currentTarget;
     const caret = selectionStart ?? text.length;
@@ -81,6 +103,33 @@ export function useAmountInput({
     }
 
     const change = event.nativeEvent;
+    if (
+      change instanceof InputEvent &&
+      change.inputType === "insertText" &&
+      change.data === "="
+    ) {
+      event.currentTarget.value = draft?.text ?? formattedValue;
+      submit();
+      return;
+    }
+
+    if (
+      change instanceof InputEvent &&
+      (change.inputType === "insertText" ||
+        change.inputType === "insertFromPaste") &&
+      change.data?.length === 1 &&
+      EXPRESSION_OPERATORS.test(change.data)
+    ) {
+      const split = formatSplitOperand({
+        text,
+        caret,
+        previousText: draft?.text ?? formattedValue,
+        format,
+      });
+      edit(split.text, split.caret);
+      return;
+    }
+
     const shouldRegroup =
       change instanceof InputEvent &&
       (change.inputType.startsWith("delete") ||
@@ -133,19 +182,7 @@ export function useAmountInput({
 
     if (key === "=") {
       event.preventDefault();
-      if (
-        draft?.isSubmitted &&
-        draft.amount !== null &&
-        draft.text === input.value
-      ) {
-        const revision = onAmountChange(draft.amount);
-        setDraft({ ...draft, revision });
-        return;
-      }
-
-      const text = input.value.trimEnd();
-      const submitted = text.endsWith("=") ? text : `${text}=`;
-      edit(submitted, submitted.length);
+      submit();
       return;
     }
 

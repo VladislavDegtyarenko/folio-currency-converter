@@ -31,18 +31,58 @@ function getOperandAt(parts: string[], caret: number) {
   return null;
 }
 
+type OperandEdit = {
+  text: string;
+  caret: number;
+  previousText: string;
+  format: AmountFormat;
+};
+
+/** Regroups both sides when an operator splits a previously valid operand. */
+export function formatSplitOperand({
+  text,
+  caret,
+  previousText,
+  format,
+}: OperandEdit) {
+  const position = caret - 1;
+  const operand = getOperandAt(
+    previousText.split(EXPRESSION_OPERATORS),
+    position,
+  );
+  const removed = previousText.length + 1 - text.length;
+
+  if (
+    !operand ||
+    removed < 0 ||
+    position + removed > operand.end ||
+    (removed === 0 &&
+      (position === operand.start || position === operand.end)) ||
+    parseAmountOperand(operand.text, format) === null
+  ) {
+    return { text, caret };
+  }
+
+  const left = previousText.slice(operand.start, position);
+  const right = previousText.slice(position + removed, operand.end);
+  const prefix =
+    previousText.slice(0, operand.start) +
+    formatAmountDraft({ text: left, caret: left.length, format }).text +
+    text[position];
+  const suffix =
+    formatAmountDraft({ text: right, caret: 0, format }).text +
+    previousText.slice(operand.end);
+
+  return { text: prefix + suffix, caret: prefix.length };
+}
+
 /** Regroups the operand being edited without changing the rest of the expression. */
 export function formatEditedOperand({
   text,
   caret,
   previousText,
   format,
-}: {
-  text: string;
-  caret: number;
-  previousText: string;
-  format: AmountFormat;
-}) {
+}: OperandEdit) {
   const parts = text.split(EXPRESSION_OPERATORS);
   const previousParts = previousText.split(EXPRESSION_OPERATORS);
 

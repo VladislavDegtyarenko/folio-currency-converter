@@ -1,6 +1,26 @@
 import { expect, it } from "vitest";
 import { createAmountFormat } from "./amountDraft";
-import { formatEditedOperand } from "./expressionOperand";
+import { formatEditedOperand, formatSplitOperand } from "./expressionOperand";
+
+it.each([
+  ["en-US", "12,345", "12,3*45", 5, "123*45", 4],
+  ["de-DE", "2 + 12.345,67", "2 + 12/345,67", 7, "2 + 12/345,67", 7],
+  ["fr-FR", "12\u202f345  +  2", "12×\u202f345  +  2", 3, "12×345  +  2", 3],
+  ["en-US", "1,234,567", "1,-,567", 3, "1-567", 2],
+  ["en-US", "12,34 + 2", "12,3*4 + 2", 5, "12,3*4 + 2", 5],
+] as const)(
+  "formats an operator inserted into %s operand %s",
+  (locale, previousText, text, caret, result, position) => {
+    expect(
+      formatSplitOperand({
+        text,
+        caret,
+        previousText,
+        format: createAmountFormat(locale),
+      }),
+    ).toEqual({ text: result, caret: position });
+  },
+);
 
 it("regroups an edited operand with pasted nonbreaking spaces in French", () => {
   const format = createAmountFormat("fr-FR");

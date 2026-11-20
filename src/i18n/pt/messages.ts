@@ -69,6 +69,12 @@ export const PT: Messages = {
   currencyDisplay: "Exibição das moedas",
   currencyPreview: "Prévia da moeda",
   faq: "Perguntas e respostas",
+  calculationHintTitle: "Calcule no próprio campo",
+  calculationHintText:
+    "A conversão muda enquanto você digita. Pressione = para inserir o resultado no campo.",
+  calculationInfo: "Como faço cálculos em um campo de valor?",
+  calculationDetails:
+    "Use +, -, * ou / em um campo de valor. A conversão é atualizada enquanto você digita. Pressione = para substituir a expressão pelo resultado. Você pode usar espaços antes e depois dos operadores. A multiplicação e a divisão são feitas primeiro. O resultado deve ser um valor válido e não negativo.",
   rateInfo: "Sobre as cotações",
   rateDetails:
     "Cotações diárias da exchange-api. A atualização verifica novos dados; as cotações salvas ficam disponíveis sem internet.",

@@ -1,11 +1,10 @@
 import * as Ariakit from "@ariakit/react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useId, useState } from "react";
-import { BRANDING } from "../branding";
+import { useId } from "react";
 import { formatAmount } from "../converter/amounts";
 import { CurrencyLabel } from "../converter/currency/CurrencyLabel";
 import { type Messages } from "../i18n/messages";
-import { InfoDisclosure } from "./InfoDisclosure";
+import { InfoSection } from "./InfoSection";
 import { LanguageSetting } from "./LanguageSetting";
 import { type Settings } from "./model";
 import { RadioSetting } from "./RadioSetting";
@@ -168,39 +167,5 @@ export function SettingsDialog({
         </Ariakit.Dialog>
       )}
     </AnimatePresence>
-  );
-}
-
-type InfoSectionProps = {
-  messages: Messages;
-};
-
-function InfoSection({ messages }: InfoSectionProps) {
-  const id = useId();
-  const [openItem, setOpenItem] = useState<"rates" | "feedback" | null>(null);
-
-  return (
-    <section className="info-section" aria-labelledby={id}>
-      <h2 id={id}>{messages.faq}</h2>
-      <InfoDisclosure
-        title={messages.rateInfo}
-        open={openItem === "rates"}
-        onOpenChange={(open) => setOpenItem(open ? "rates" : null)}
-      >
-        <p>{messages.rateDetails}</p>
-      </InfoDisclosure>
-      <InfoDisclosure
-        title={messages.feedbackInfo}
-        open={openItem === "feedback"}
-        onOpenChange={(open) => setOpenItem(open ? "feedback" : null)}
-      >
-        <p>
-          {messages.feedbackPrompt}{" "}
-          <a href={`mailto:${BRANDING.feedbackEmail}`}>
-            {BRANDING.feedbackEmail}
-          </a>
-        </p>
-      </InfoDisclosure>
-    </section>
   );
 }

@@ -13,7 +13,18 @@ export function createAmountFormat(locale: string) {
   return { integer, group, decimal, digits };
 }
 
-type AmountFormat = ReturnType<typeof createAmountFormat>;
+export type AmountFormat = ReturnType<typeof createAmountFormat>;
+
+/** Converts the locale's digits to ASCII while leaving separators in place. */
+function normalizeDigits(text: string, format: AmountFormat) {
+  let plain = text;
+
+  for (const [digit, localized] of format.digits.entries()) {
+    plain = plain.split(localized).join(String(digit));
+  }
+
+  return plain;
+}
 
 /** Removes locale grouping and converts localized digits to a plain decimal draft. */
 function normalizeDraft(text: string, format: AmountFormat) {
@@ -27,11 +38,44 @@ function normalizeDraft(text: string, format: AmountFormat) {
     plain = plain.replace(/ /g, ""); // Accept ordinary spaces pasted instead of nonbreaking groups.
   }
 
-  for (const [digit, localized] of format.digits.entries()) {
-    plain = plain.split(localized).join(String(digit));
+  return normalizeDigits(plain, format).split(format.decimal).join(".");
+}
+
+/** Reads a localized operand and checks grouping without changing the expression. */
+export function parseAmountOperand(text: string, format: AmountFormat) {
+  const plain = normalizeDigits(text.trim(), format);
+  const [whole, fraction, ...extra] = plain.split(format.decimal);
+  const digitsOnly = /^\d*$/; // Allows an empty integer or a trailing decimal separator.
+  const groupedWhole =
+    format.group && !format.group.trim()
+      ? whole.replace(/[ \u00a0\u202f]/g, format.group) // Accepts common space variants in space-grouping locales.
+      : whole;
+  const hasGroups = Boolean(
+    format.group && groupedWhole.includes(format.group),
+  );
+  const integer = hasGroups
+    ? groupedWhole.split(format.group).join("")
+    : groupedWhole;
+
+  if (
+    extra.length > 0 ||
+    (!integer && !fraction) ||
+    !digitsOnly.test(integer) ||
+    (fraction !== undefined && !digitsOnly.test(fraction))
+  ) {
+    return null;
   }
 
-  return plain.split(format.decimal).join(".");
+  if (
+    hasGroups &&
+    groupedWhole !==
+      normalizeDigits(format.integer.format(Number(integer)), format)
+  ) {
+    return null;
+  }
+
+  const decimal = fraction === undefined ? "" : `.${fraction}`;
+  return parseAmount(`${integer || "0"}${decimal}`);
 }
 
 /** Formats a draft without rounding its fraction, preserving the caret's digit position. */

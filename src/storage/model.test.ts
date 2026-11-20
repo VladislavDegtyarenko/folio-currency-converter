@@ -4,6 +4,16 @@ import { restoreRates } from "../rates/model";
 import { applyRates, DEFAULT_STATE, restoreState } from "./model";
 
 describe("persisted state boundary", () => {
+  it.each([undefined, false, true, "true"])(
+    "only treats a saved boolean true as having seen the calculation hint",
+    (hasSeenCalculationHint) => {
+      const saved = { ...DEFAULT_STATE, hasSeenCalculationHint };
+      expect(restoreState(saved).hasSeenCalculationHint).toBe(
+        hasSeenCalculationHint === true,
+      );
+    },
+  );
+
   it.each(["es", "pt", "fr", "de", "hi"])(
     "preserves the saved %s language after serialization",
     (language) => {

@@ -70,6 +70,12 @@ export const ES: Messages = {
   currencyDisplay: "Visualización de divisas",
   currencyPreview: "Vista previa de la divisa",
   faq: "Preguntas y respuestas",
+  calculationHintTitle: "Calcula en el campo",
+  calculationHintText:
+    "La conversión se actualiza mientras escribes. Pulsa = para llevar el resultado al campo.",
+  calculationInfo: "¿Cómo hago cálculos en un campo de importe?",
+  calculationDetails:
+    "Usa +, -, * o / en un campo de importe. La conversión se actualiza mientras escribes. Pulsa = si quieres sustituir la operación por su resultado. Puedes dejar espacios alrededor de los operadores. La multiplicación y la división se hacen primero. El resultado debe ser un importe válido y no negativo.",
   rateInfo: "Acerca de los tipos de cambio",
   rateDetails:
     "Tipos de cambio diarios de exchange-api. Al actualizar se buscan nuevos datos; los tipos guardados están disponibles sin conexión.",

@@ -17,6 +17,7 @@ export type SavedState = {
   euros: number;
   mode: "single" | "multiple";
   pair: [CurrencyCode, CurrencyCode];
+  hasSeenCalculationHint: boolean;
   settings: Settings;
   rates: Rates | null;
 };
@@ -28,6 +29,7 @@ export const DEFAULT_STATE: SavedState = {
   euros: 100,
   mode: "multiple",
   pair: ["EUR", "USD"],
+  hasSeenCalculationHint: false,
   settings: DEFAULT_SETTINGS,
   rates: null,
 };
@@ -110,6 +112,7 @@ export function restoreState(value: unknown): SavedState {
         : 100,
     mode: value.mode === "single" ? "single" : "multiple",
     pair,
+    hasSeenCalculationHint: value.hasSeenCalculationHint === true,
     settings: restoredSettings,
     rates,
   };

@@ -71,6 +71,12 @@ export const FR: Messages = {
   currencyDisplay: "Affichage des devises",
   currencyPreview: "Aperçu de la devise",
   faq: "Questions et réponses",
+  calculationHintTitle: "Calculez dans le champ",
+  calculationHintText:
+    "La conversion s’actualise à la saisie. Tapez = pour remplacer le calcul par son résultat.",
+  calculationInfo: "Comment calculer dans un champ de montant ?",
+  calculationDetails:
+    "Utilisez +, -, * ou / dans un champ de montant. La conversion se met à jour pendant la saisie. Tapez = pour remplacer le calcul par son résultat. Vous pouvez laisser des espaces autour des opérateurs. La multiplication et la division sont prioritaires. Le résultat doit être un montant valide et positif ou nul.",
   rateInfo: "À propos des taux",
   rateDetails:
     "Taux quotidiens fournis par exchange-api. L’actualisation vérifie les mises à jour ; les taux enregistrés restent disponibles hors ligne.",

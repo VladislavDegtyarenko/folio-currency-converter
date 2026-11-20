@@ -2,6 +2,7 @@ import { type formatAmountEdit } from "./amountExpression";
 
 export type InputDraft = ReturnType<typeof formatAmountEdit> & {
   revision: number;
+  isSubmitted?: boolean;
 };
 
 /** Discards a stale expression or invalid draft after another field's valid edit. */

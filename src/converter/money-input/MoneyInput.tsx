@@ -1,6 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { type KeyboardEvent, useId } from "react";
 import { type Messages } from "../../i18n/messages";
+import { useSavedState } from "../../storage/useSavedState";
 import { formatAmount } from "../amounts";
 import { type CurrencyCode } from "../currency/currencies";
 import { CalculationHint } from "./CalculationHint";
@@ -27,9 +28,13 @@ export function MoneyInput({
   onChange,
 }: Props) {
   const hint = useCalculationHint();
+  const rate = useSavedState(({ state: { rates } }) =>
+    rates ? rates.usd[code] / rates.usd.EUR : undefined,
+  );
   const input = useAmountInput({
     inputRevision,
     locale,
+    rate,
     onAmountChange: onChange,
     onCalculation: hint.dismiss,
   });

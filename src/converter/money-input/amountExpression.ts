@@ -1,16 +1,19 @@
-import { MAX_AMOUNT } from "../amounts";
 import {
   type AmountFormat,
   formatAmountDraft,
   parseAmountOperand,
 } from "./amountDraft";
+import {
+  addFractions,
+  formatFraction,
+  fractionToAmount,
+} from "./amountFraction";
+import { EXPRESSION_OPERATORS } from "./expressionOperand";
 
 type AmountEdit = ReturnType<typeof formatAmountDraft> & {
   isExpression?: boolean;
   isPending?: boolean;
 };
-
-const OPERATORS = /([+\-−*×/÷])/; // Splits at arithmetic operators and keeps the symbols.
 
 /** Evaluates complete expressions as typed and replaces their text on equals. */
 export function formatAmountEdit({
@@ -25,7 +28,7 @@ export function formatAmountEdit({
   const end = text.trimEnd();
   const isSubmitted = end.endsWith("=");
   const expression = isSubmitted ? end.slice(0, -1) : end;
-  const [first, ...operations] = expression.split(OPERATORS);
+  const [first, ...operations] = expression.split(EXPRESSION_OPERATORS);
 
   if (operations.length === 0 && !text.includes("=")) {
     const suffix = text.slice(end.length);
@@ -55,7 +58,7 @@ export function formatAmountEdit({
     return invalid;
   }
 
-  let total = 0;
+  let total = { numerator: 0n, denominator: 1n };
   let term = initialAmount;
 
   for (let index = 0; index < operations.length; index += 2) {
@@ -79,21 +82,35 @@ export function formatAmountEdit({
     switch (operator) {
       case "*":
       case "×":
-        term *= amount;
+        term = {
+          numerator: term.numerator * amount.numerator,
+          denominator: term.denominator * amount.denominator,
+        };
         break;
       case "/":
       case "÷":
-        term /= amount;
+        if (amount.numerator === 0n) {
+          return invalid;
+        }
+
+        term = {
+          numerator: term.numerator * amount.denominator,
+          denominator: term.denominator * amount.numerator,
+        };
         break;
       default:
-        total += term;
-        term = operator === "+" ? amount : -amount;
+        total = addFractions(total, term);
+        term =
+          operator === "+"
+            ? amount
+            : { ...amount, numerator: -amount.numerator };
     }
   }
 
-  const amount = total + term;
+  const fraction = addFractions(total, term);
+  const amount = fractionToAmount(fraction);
 
-  if (!Number.isFinite(amount) || amount < 0 || amount > MAX_AMOUNT) {
+  if (amount === null) {
     return invalid;
   }
 
@@ -101,12 +118,7 @@ export function formatAmountEdit({
     return { text, caret, amount, isExpression: true };
   }
 
-  const result = new Intl.NumberFormat(
-    format.integer.resolvedOptions().locale,
-    {
-      maximumFractionDigits: 8,
-    },
-  ).format(amount);
+  const result = formatFraction(fraction, format);
 
   return { text: result, caret: result.length, amount };
 }

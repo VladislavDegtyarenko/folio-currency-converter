@@ -15,6 +15,9 @@ describe("amount expressions", () => {
     ["6 × 3 ÷ 2 − 9=", 0],
     ["1 - 2 + 3=", 2],
     [".5 + 0.1=", 0.6],
+    ["0.3 - 0.1 - 0.2=", 0],
+    ["0.7 - 0.1 - 0.6=", 0],
+    ["0.1 / 3 * 3 - 0.1=", 0],
   ])("evaluates %s using standard operation order", (text, amount) => {
     expect(edit(text)).toEqual({
       text: String(amount),
@@ -25,6 +28,8 @@ describe("amount expressions", () => {
 
   it.each([
     ["en-US", "1,234.50 + 0.5=", "1,235"],
+    ["en-US", "999,999,999,998.99999999 + 0=", "999,999,999,998.99999999"],
+    ["de-DE", "1 / 200000000=", "0,00000001"],
     ["de-DE", "1.234,50 + 0,5=", "1.235"],
     ["ru-RU", "1 234,50 +  0,5=", "1\u00a0235"],
     ["fr-FR", "1\u202f234,50 + 0,25=", "1\u202f234,75"],
@@ -62,6 +67,21 @@ describe("amount expressions", () => {
     });
   });
 
+  it("converts a decimal expression to zero before equals is entered", () => {
+    expect(edit("0.3 - 0.1 - 0.2")).toMatchObject({
+      amount: 0,
+      isExpression: true,
+    });
+  });
+
+  it("keeps small differences between large amounts", () => {
+    expect(edit("999,999,999,999 - 999,999,999,998.99999999=")).toEqual({
+      text: "0.00000001",
+      caret: 10,
+      amount: 0.00000001,
+    });
+  });
+
   it.each(["12 + ", "12 + .", "12 * 2 + "])(
     "keeps incomplete expression %s editable without converting",
     (text) => {
@@ -79,8 +99,11 @@ describe("amount expressions", () => {
     ["en-US", "1 / 0="],
     ["en-US", "1 - 2"],
     ["en-US", "1 - 2="],
+    ["en-US", "1 - 1 - 0.00000001 * 0.00000001="],
+    ["en-US", "999,999,999,998.99999999 - 999,999,999,999="],
     ["en-US", "999,999,999,999 + 1"],
     ["en-US", "999,999,999,999 + 1="],
+    ["en-US", "999,999,999,999 + 0.00000001="],
     ["en-US", "1 + 0.123456789="],
     ["en-US", "12 + ="],
     ["en-US", "12 + * 3"],

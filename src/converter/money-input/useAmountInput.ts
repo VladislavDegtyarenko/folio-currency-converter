@@ -7,13 +7,18 @@ import {
   useRef,
   useState,
 } from "react";
-import { createAmountFormat, getGroupDeletion } from "./amountDraft";
+import { createAmountFormat } from "./amountDraft";
 import { formatAmountEdit } from "./amountExpression";
+import {
+  formatEditedOperand,
+  getOperandGroupDeletion,
+} from "./expressionOperand";
 import { getCurrentInputDraft, type InputDraft } from "./inputDraft";
 
 type Options = {
   inputRevision: number;
   locale: string;
+  rate: number | undefined;
   onAmountChange: (value: number) => number;
   onCalculation: () => void;
 };
@@ -22,6 +27,7 @@ type Options = {
 export function useAmountInput({
   inputRevision,
   locale,
+  rate,
   onAmountChange,
   onCalculation,
 }: Options) {
@@ -34,6 +40,14 @@ export function useAmountInput({
     draft?.amount === null && !draft.isPending && !isComposing.current;
 
   useLayoutEffect(() => {
+    setDraft(null);
+  }, [locale]);
+
+  useLayoutEffect(() => {
+    setDraft((current) => (current?.isExpression ? null : current));
+  }, [rate]);
+
+  useLayoutEffect(() => {
     const input = inputRef.current;
 
     if (draft && input === document.activeElement && !isComposing.current) {
@@ -41,20 +55,16 @@ export function useAmountInput({
     }
   }, [draft]);
 
-  function edit(text: string, caret: number) {
-    const next = formatAmountEdit({ text, caret, format });
-    const end = text.trimEnd();
-    const isSubmitted = end.endsWith("=");
-    const replacesExpression =
-      isSubmitted &&
-      draft?.isExpression &&
-      next.amount === draft.amount &&
-      end.slice(0, -1).trimEnd() === draft.text.trimEnd();
+  function edit(text: string, caret: number, shouldRegroup = false) {
+    const updated =
+      shouldRegroup && draft
+        ? formatEditedOperand({ text, caret, previousText: draft.text, format })
+        : { text, caret };
+    const next = formatAmountEdit({ ...updated, format });
     const revision =
-      next.amount === null || replacesExpression
-        ? inputRevision
-        : onAmountChange(next.amount);
-    setDraft({ ...next, revision });
+      next.amount === null ? inputRevision : onAmountChange(next.amount);
+    const isSubmitted = next.amount !== null && text.trimEnd().endsWith("=");
+    setDraft({ ...next, revision, isSubmitted });
 
     if (next.amount !== null && (next.isExpression || isSubmitted)) {
       onCalculation();
@@ -70,7 +80,19 @@ export function useAmountInput({
       return;
     }
 
-    edit(text, caret);
+    const change = event.nativeEvent;
+    const shouldRegroup =
+      change instanceof InputEvent &&
+      (change.inputType.startsWith("delete") ||
+        ((change.inputType === "insertText" ||
+          change.inputType === "insertFromPaste") &&
+          !!change.data &&
+          Array.from(change.data).every(
+            (digit) =>
+              format.digits.includes(digit) || "0123456789".includes(digit),
+          )));
+
+    edit(text, caret, shouldRegroup);
   }
 
   function handleCompositionStart() {
@@ -100,12 +122,30 @@ export function useAmountInput({
     const { key, code } = event;
 
     if (key === "Escape") {
-      setDraft(null);
       input.blur();
+      setDraft(null);
       return;
     }
 
     if (event.altKey || event.ctrlKey || event.metaKey) {
+      return;
+    }
+
+    if (key === "=") {
+      event.preventDefault();
+      if (
+        draft?.isSubmitted &&
+        draft.amount !== null &&
+        draft.text === input.value
+      ) {
+        const revision = onAmountChange(draft.amount);
+        setDraft({ ...draft, revision });
+        return;
+      }
+
+      const text = input.value.trimEnd();
+      const submitted = text.endsWith("=") ? text : `${text}=`;
+      edit(submitted, submitted.length);
       return;
     }
 
@@ -117,15 +157,16 @@ export function useAmountInput({
       edit(
         input.value.slice(0, start) + format.decimal + input.value.slice(end),
         start + format.decimal.length,
+        true,
       );
       return;
     }
 
-    if (event.shiftKey || draft?.amount === null || draft?.isExpression) {
+    if (event.shiftKey || (draft?.amount === null && !draft.isPending)) {
       return;
     }
 
-    const selection = getGroupDeletion({
+    const selection = getOperandGroupDeletion({
       text: input.value,
       start,
       end,

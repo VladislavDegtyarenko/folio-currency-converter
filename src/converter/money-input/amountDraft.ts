@@ -1,4 +1,7 @@
 import { parseAmount } from "../amounts";
+import { fractionFromDecimal } from "./amountFraction";
+
+const GROUP_SPACES = /[ \u00a0\u202f]/g; // Matches regular, nonbreaking and narrow nonbreaking spaces.
 
 /** Builds the locale's decimal, grouping and digit rules once per input locale. */
 export function createAmountFormat(locale: string) {
@@ -35,20 +38,20 @@ function normalizeDraft(text: string, format: AmountFormat) {
   }
 
   if (format.group.trim() === "") {
-    plain = plain.replace(/ /g, ""); // Accept ordinary spaces pasted instead of nonbreaking groups.
+    plain = plain.replace(GROUP_SPACES, "");
   }
 
   return normalizeDigits(plain, format).split(format.decimal).join(".");
 }
 
-/** Reads a localized operand and checks grouping without changing the expression. */
+/** Validates a localized operand and converts its digits to an exact fraction. */
 export function parseAmountOperand(text: string, format: AmountFormat) {
   const plain = normalizeDigits(text.trim(), format);
   const [whole, fraction, ...extra] = plain.split(format.decimal);
   const digitsOnly = /^\d*$/; // Allows an empty integer or a trailing decimal separator.
   const groupedWhole =
     format.group && !format.group.trim()
-      ? whole.replace(/[ \u00a0\u202f]/g, format.group) // Accepts common space variants in space-grouping locales.
+      ? whole.replace(GROUP_SPACES, format.group)
       : whole;
   const hasGroups = Boolean(
     format.group && groupedWhole.includes(format.group),
@@ -75,7 +78,8 @@ export function parseAmountOperand(text: string, format: AmountFormat) {
   }
 
   const decimal = fraction === undefined ? "" : `.${fraction}`;
-  return parseAmount(`${integer || "0"}${decimal}`);
+  const operand = `${integer || "0"}${decimal}`;
+  return parseAmount(operand) === null ? null : fractionFromDecimal(operand);
 }
 
 /** Formats a draft without rounding its fraction, preserving the caret's digit position. */

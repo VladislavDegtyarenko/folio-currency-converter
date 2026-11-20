@@ -85,8 +85,9 @@ export function formatEditedOperand({
 }: OperandEdit) {
   const parts = text.split(EXPRESSION_OPERATORS);
   const previousParts = previousText.split(EXPRESSION_OPERATORS);
+  const removedParts = previousParts.length - parts.length;
 
-  if (parts.length === 1 || parts.length !== previousParts.length) {
+  if (parts.length === 1 || removedParts < 0) {
     return { text, caret };
   }
 
@@ -96,14 +97,19 @@ export function formatEditedOperand({
     return { text, caret };
   }
 
-  const previous = previousParts[operand.index].trim();
+  // Deleting operators can merge adjacent operands into the one under the caret.
+  const lastPreviousOperand = operand.index + removedParts;
 
-  if (
-    previous &&
-    previous !== format.decimal &&
-    parseAmountOperand(previous, format) === null
-  ) {
-    return { text, caret };
+  for (let index = operand.index; index <= lastPreviousOperand; index += 2) {
+    const previous = previousParts[index].trim();
+
+    if (
+      previous &&
+      previous !== format.decimal &&
+      parseAmountOperand(previous, format) === null
+    ) {
+      return { text, caret };
+    }
   }
 
   const formatted = formatAmountDraft({

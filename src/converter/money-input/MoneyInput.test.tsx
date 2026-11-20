@@ -262,6 +262,22 @@ it.each(["single", "multiple"] as const)(
       expect(euros.selectionStart).toBe(7);
       expect(dollars.value).toBe("185,185.50");
 
+      await enter(euros, "1,234+5+6");
+      await act(async () => {
+        euros.value = "1,2345+6";
+        euros.setSelectionRange(5, 5);
+        euros.dispatchEvent(
+          new InputEvent("input", {
+            inputType: "deleteContentForward",
+            bubbles: true,
+          }),
+        );
+      });
+      expect(euros.value).toBe("12,345+6");
+      expect(euros.selectionStart).toBe(5);
+      expect(euros.getAttribute("aria-invalid")).toBe("false");
+      expect(dollars.value).toBe("18,526.50");
+
       await enter(euros, "12345");
       expect(euros.value).toBe("12,345");
       await act(async () => {
